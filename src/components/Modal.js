@@ -12,10 +12,12 @@ export default function Modal({ id, setModal }) {
     type: "",
   });
 
-  var i, h, a, d, s, nam, t;
+ 
   let url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 
-  useEffect(() => {
+    useEffect(() => {
+        
+        var i, h, a, d, s, nam, t;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -71,7 +73,7 @@ export default function Modal({ id, setModal }) {
           <div id="hp">
             <span>hp: {stats.hp} </span>
           </div>
-          <img src={stats.img} />
+          <img src={stats.img} alt="pokemon"/>
         </div>
 
         <div id="mname"> {stats.name} </div>

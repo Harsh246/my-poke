@@ -80,8 +80,15 @@ function App() {
           {list.map((item, key) => {
           
             if (item.name.includes(search.toLowerCase())){
-              return <Card item={item} key={key}  setModal={setModal} /> }
-          })}
+              return <Card item={item} key={key} setModal={setModal} />
+            }
+            else {
+              return <></>;
+            }
+          })
+          
+          }
+          
         </> : <>
         {list.map((item, key) =><Card item={item} key={key} setModal={setModal}/>)}
             </> 
