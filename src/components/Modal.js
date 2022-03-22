@@ -43,7 +43,12 @@ export default function Modal({ id, setModal }) {
           type: t,
         });
       });
-  }, []);
+        
+// eslint-disable-next-line react-hooks/exhaustive-deps
+ 
+  
+//eslint-disable-next-line react-hooks/exhaustive-deps
+ }, []);
 
   return (
     // click anywhere outside main modal dailog to close modal. this id as modal is used to set background color.

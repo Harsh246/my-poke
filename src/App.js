@@ -46,6 +46,7 @@ function App() {
 
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 
+      
       .then((res) => res.json())
       .then((data) => {
         data.results.forEach((item) => {
@@ -60,13 +61,9 @@ function App() {
     }, 3000);
    
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
-  useEffect(() => {
-    console.log(modal.show);
-  }, [modal]);
 
 
 
@@ -75,7 +72,7 @@ function App() {
       <Navbar search={search} setSearch={setSearch} />
       <div id="container">
        
-        {loading ? <img id="loading" src={laoding} /> : search ? <>
+        {loading ? <img id="loading" src={laoding} alt="loading" /> : search ? <>
           
           {list.map((item, key) => {
           
