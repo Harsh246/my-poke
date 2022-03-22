@@ -142,12 +142,38 @@
     }
 
     
-    @media only screen  and (max-width: 699px) {
+    @media only screen and (min-width:500px)  and (max-width: 699px) {
 	
         #modal #card{
             font-family: 'Nunito', sans-serif;
             width:55%;
             height:70%;
         }
+
+    }
+
+
+    @media only screen   and (max-width: 500px) {
+	
+        #modal #card{
+            font-family: 'Nunito', sans-serif;
+            width:95%;
+            height:70%;
+        }
+
+        #modal  .row{
+           
+            
+           font-weight:bold;
+           font-size: 16px;
+            border:1px solid white;
+            padding:0.5rem;
+            background-color:white;
+            border-radius: 100px;
+            
+          }
+        
+        
+
 
     }

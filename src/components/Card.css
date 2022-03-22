@@ -69,9 +69,16 @@ display: flex;
         height: 35vh;
         width:40vw;}
 }
-@media only screen  and (max-width: 699px) {
+@media only screen  and (min-width: 500px) and (max-width: 699px) {
 	#card{
         height: 35vh;
         width:50vw;}
+  
+}
+
+@media only screen   and (max-width: 500px) {
+    #card{
+        height: 35vh;
+        width:60vw;}
   
 }
