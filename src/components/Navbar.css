@@ -12,6 +12,8 @@
 top: 0;
 left: 0;
  z-index: 9999;
+ box-shadow: 0 8px 12px 0 rgb(231, 224, 224)
+  
 }
 
 #nav img{
@@ -27,4 +29,7 @@ input{
     height: 5vh;
 font-size: 3vh;
 padding: 0.2rem;
+border-radius: 10px;
 }
+
+

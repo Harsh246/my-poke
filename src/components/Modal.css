@@ -1,0 +1,125 @@
+#modal {
+    position: absolute;
+    width: 99.2vw;
+    height: 90vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(121, 115, 115, 0.658);
+    flex-wrap: wrap;
+   
+    top: 0;
+    -webkit-transition: 5s ease-in;
+    transition: 5s ease-in;
+
+   
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+ 
+  
+  #modal #card{
+    font-family: 'Nunito', sans-serif;
+    width:23%;
+    height:70%;
+    position:relative;
+    background:linear-gradient(45deg, #2F1C53, #A46DFF, #F6D1FD);
+    border: 5px solid yellow;
+    
+  box-sizing: border-box;
+    
+  }
+  #modal #img{
+    width:100%;
+    height:60%;
+    position:relative;
+  }
+  #modal img{
+    width:100%;
+    height:100%;
+  
+  }
+  
+  #modal #info{
+    width:100%;
+    height:30%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    
+  box-sizing: border-box;
+    
+  }
+  
+  #modal #hp{
+    position:absolute;
+    right:0;
+    margin:0.5rem;
+    font-weight:bold;
+    border:1px solid white;
+    padding:0.2rem;
+    background-color:white;
+    border-radius: 100px;
+    
+    
+  }
+  
+  #modal #name{
+    width:100%;
+    height:10%;
+     display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight: bolder;
+  }
+  
+  #modal  .row{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    width:40%;
+    
+   font-weight:bold;
+    border:1px solid white;
+    padding:0.5rem;
+    background-color:white;
+    border-radius: 100px;
+    
+  }
+
+
+  
+  @media (max-width: 1207px) {
+  
+    
+    
+  
+      }
+
+
+      #close {
+        
+        text-align: center;
+        vertical-align: center;
+        position: absolute;
+        left:0;
+        margin:0.5rem;
+        top:0;
+        border: 1px solid #77716e;
+        background-color: rgb(88, 73, 73);
+        color: white;
+        padding: 0.2rem;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      #close:hover {
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+        background-color: red;
+      }

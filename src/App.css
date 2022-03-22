@@ -10,8 +10,9 @@ flex-wrap: wrap;
 box-sizing: border-box;
 overflow: scroll;
 margin-top: 10vh;
-min-height: 90vh;
 
+height:94vh;
+overflow: scroll;
 }
 
 #container img{

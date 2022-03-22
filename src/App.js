@@ -4,11 +4,14 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Card from './components/Card.js';
 import laoding from './images/laoding.gif';
+import Modal from './components/Modal.js';
 
 function App() {
  
   const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
+
+  const [modal, setModal] = useState({ show: false, id: 0 });
 
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +33,7 @@ function App() {
         tempList.push({
           name: data.name,
           id: data.id,
-          image: data.sprites["front_default"]
+          image: data.sprites.other.dream_world["front_default"]
         });
 
 
@@ -61,6 +64,11 @@ function App() {
   }, []);
 
 
+  useEffect(() => {
+    console.log(modal.show);
+  }, [modal]);
+
+
 
   return (
     <>
@@ -72,18 +80,21 @@ function App() {
           {list.map((item, key) => {
           
             if (item.name.includes(search.toLowerCase())){
-              return <Card item={item} key={key} />}
+              return <Card item={item} key={key}  setModal={setModal} /> }
           })}
         </> : <>
-        {list.map((item, key) => <Card item={item} key={key} />)}
+        {list.map((item, key) =><Card item={item} key={key} setModal={setModal}/>)}
             </> 
     } 
 
+   
 
+     
       </div>
-      
-    </>
-
+      {modal.show ? <Modal id={modal.id} setModal={setModal} /> : null}
+  
+ 
+</>
 
   );
 }
