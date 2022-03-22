@@ -12,7 +12,8 @@
     color: rgb(0, 0, 0);
    
    margin:2rem;
-   box-shadow: 0 8px 12px 0 rgb(0, 0, 0)
+   box-shadow: 0 8px 12px 0 rgb(0, 0, 0);
+   border-radius: 10px;
   
 }
 
@@ -41,6 +42,36 @@ display: flex;
     color: white;
  cursor:pointer;
  text-transform: uppercase;
- font-weight: 400;
+ border-radius: 0px 0px 10px 10px ;
+ transition: 0.2s ease-in-out;
  
+}
+#name:hover{
+    font-weight: bolder;
+    color:rgb(40, 25, 119);
+}
+
+
+
+@media only screen and (min-width: 784px) and (max-width: 1304px) {
+	
+
+    #card{
+        height: 35vh;
+        width:25vw;}
+}
+
+
+@media only screen and (max-width: 784px) {
+	
+
+    #card{
+        height: 35vh;
+        width:40vw;}
+}
+@media only screen  and (max-width: 699px) {
+	#card{
+        height: 35vh;
+        width:50vw;}
+  
 }

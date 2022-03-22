@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Modal.css";
-
 export default function Modal({ id, setModal }) {
   const [stats, setStats] = useState({
     name: "",
@@ -75,22 +74,22 @@ export default function Modal({ id, setModal }) {
           <img src={stats.img} />
         </div>
 
-        <div id="name"> {stats.name} </div>
+        <div id="mname"> {stats.name} </div>
         <div id="info">
-          <div class="row">
+          <div className="row">
             <div>Attack:</div>
                       <div>{ stats.attack}</div>
           </div>
-<div class="row">
+<div className="row">
             <div>Speed:</div>
             <div>{stats.speed}</div>
           </div>
-          <div class="row">
+          <div className="row">
             <div>Defense:</div>
             <div>{stats.defense}</div>
           </div>
 
-          <div class="row">
+          <div className="row">
             <div>Type:</div>
             <div>{stats.type.toUpperCase()}</div>
           </div>
