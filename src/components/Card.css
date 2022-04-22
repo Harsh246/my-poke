@@ -14,14 +14,17 @@
    margin:2rem;
    box-shadow: 0 8px 12px 0 rgb(0, 0, 0);
    border-radius: 10px;
+   opacity: 0.97;
    
-transition: transform .3s ease-out,opacity .2s ease-out;
+transition: box-shadow .3s ease-out, transform .3s ease-out,opacity .2s ease-out;
   
 }
 
 #card:hover{
     opacity: 1!important;
     transform: translateY(-5px);
+    
+   box-shadow: 0 8px 12px 0 rgb(233, 233, 233);
 }
 
 #image{
