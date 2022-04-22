@@ -85,10 +85,10 @@ setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
       
               setTotalPages(count);
 
-              const indexOfLastTodo = currentPage * 15;
-              const indexOfFirstTodo = indexOfLastTodo - 15;
+              const indexOfLastPoke = currentPage * 15;
+              const indexOfFirstPoke = indexOfLastPoke - 15;
 
-              const currentpokes = list.slice(indexOfFirstTodo, indexOfLastTodo);
+              const currentpokes = list.slice(indexOfFirstPoke, indexOfLastPoke);
 
               
 
@@ -118,11 +118,11 @@ setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
     console.log(value);
     setCurrentPage(value);
     console.log(currentPage); // hence proved, useState is async :)
-    const indexOfLastTodo = value * 15;
-    const indexOfFirstTodo = indexOfLastTodo - 15;
-    console.log(indexOfFirstTodo, indexOfLastTodo);
+    const indexOfLastPoke = value * 15;
+    const indexOfFirstPoke = indexOfLastPoke - 15;
+    console.log(indexOfFirstPoke, indexOfLastPoke);
 
-    const currentpokes = list.slice(indexOfFirstTodo, indexOfLastTodo);
+    const currentpokes = list.slice(indexOfFirstPoke, indexOfLastPoke);
 
     
     setCurrentPokeList(JSON.parse(JSON.stringify(currentpokes)));
