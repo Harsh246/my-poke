@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card.js";
@@ -8,7 +10,29 @@ import laoding from "./images/laoding.gif";
 import Modal from "./components/Modal.js";
 import { v4 as uuidv4 } from 'uuid';
 
+// const useStyles = makeStyles((theme) => ({
+//   color: {
+//     color: "white"
+//   }
+// }));
+
+const useStyles = makeStyles((theme) =>({
+  root: {
+
+      '& .Mui-selected': {
+        backgroundColor: 'transparent',
+        color:'#19D5C6',
+       },
+
+       '& .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root':{
+         color:"white"
+       }
+       
+  } })
+);
+
 function App() {
+  const classes = useStyles();
   const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -26,6 +50,8 @@ function App() {
     setTotalPages(10);
     setCurrentPage(1);
     setCurrentPokeList([]);
+
+    
 
     const getList = async () => {
       result = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151").then(
@@ -132,7 +158,8 @@ setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
                 page={currentPage}
                 onChange={handlePageChange}
                 siblingCount={0}
-              />
+                className={classes.root} 
+              />{" "}
             </div>
           
           </>
