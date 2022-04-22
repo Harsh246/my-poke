@@ -9,14 +9,43 @@ align-items: center;
 flex-wrap: wrap;
 box-sizing: border-box;
 overflow: scroll;
-margin-top: 10vh;
+margin-top: 12vh;
 
-height:94vh;
+height:90vh;
 overflow: scroll;
+overflow-x: hidden;
+
 
 }
 
 #container img{
     width: 5%;
 }
+#footer{
+    width:100vw;
+    background-color: #0075BE;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    height:10vh;
+    min-height: 20vh;
 
+}
+
+
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root
+{
+    color: white !important;
+ 
+}
+
+@media only screen and (max-width: 400px) {
+	
+    #container img{
+        width: 10%;
+    }
+}

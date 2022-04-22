@@ -4,10 +4,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
-  box-sizing: border-box;
   position: relative;
   
   font-family: 'Nunito', sans-serif;
+ background-color: #0075BE;
+ overflow: hidden;
+ overflow-x: hidden;
 
 }
 *::-webkit-scrollbar {
@@ -22,4 +24,11 @@ body {
   background-color:  #CE2211;
   border-radius: 20px;
   
+}
+
+@media only screen and (max-width: 400px) {
+	
+ body{
+   font-size: 16px;
+ }
 }
