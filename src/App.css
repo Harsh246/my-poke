@@ -1,5 +1,5 @@
 #container{
-height:auto;
+
 max-width: 100vw;
 background-color: #0075BE;
 display: flex;
@@ -13,8 +13,10 @@ margin-top: 10vh;
 
 height:94vh;
 overflow: scroll;
+
 }
 
 #container img{
     width: 5%;
 }
+
