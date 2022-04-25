@@ -1,14 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card.js";
 import laoding from "./images/laoding.gif";
 import Modal from "./components/Modal.js";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+
+import { useRef } from "react";
 
 // const useStyles = makeStyles((theme) => ({
 //   color: {
@@ -16,22 +18,21 @@ import { v4 as uuidv4 } from 'uuid';
 //   }
 // }));
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) => ({
   root: {
+    "& .Mui-selected": {
+      backgroundColor: "transparent",
+      color: "#19D5C6",
+    },
 
-      '& .Mui-selected': {
-        backgroundColor: 'transparent',
-        color:'#19D5C6',
-       },
-
-       '& .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root':{
-         color:"white"
-       }
-       
-  } })
-);
+    "& .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root": {
+      color: "white",
+    },
+  },
+}));
 
 function App() {
+  const container = useRef();
   const classes = useStyles();
   const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
@@ -51,13 +52,11 @@ function App() {
     setCurrentPage(1);
     setCurrentPokeList([]);
 
-    
-
     const getList = async () => {
       result = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151").then(
         (response) => response.json()
       );
- 
+
       for (const item of result.results) {
         let data = await fetch(item.url).then((res) => res.json());
         let tempList = [];
@@ -70,52 +69,42 @@ function App() {
           });
 
           setList(tempList);
-         // console.log(list.length);
+          // console.log(list.length);
+        }
+      }
 
- }
+      setList(
+        list.sort((a, b) =>
+          a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+        )
+      );
+      let count = Math.ceil(list.length / 15);
 
+      console.log(count);
 
- 
-}
+      setTotalPages(count);
 
-setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
-              let count = Math.ceil(list.length / 15);
+      const indexOfLastPoke = currentPage * 15;
+      const indexOfFirstPoke = indexOfLastPoke - 15;
 
-              console.log(count);
-      
-              setTotalPages(count);
+      const currentpokes = list.slice(indexOfFirstPoke, indexOfLastPoke);
 
-              const indexOfLastPoke = currentPage * 15;
-              const indexOfFirstPoke = indexOfLastPoke - 15;
+      setCurrentPokeList(JSON.parse(JSON.stringify(currentpokes)));
+      console.log(currentPokeList.length);
 
-              const currentpokes = list.slice(indexOfFirstPoke, indexOfLastPoke);
-
-              
-
-              setCurrentPokeList(JSON.parse(JSON.stringify(currentpokes)));
-              console.log(currentPokeList.length);
-    
-
-
-
-
-
-
-         
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 1000);
     };
 
     getList();
 
-
- 
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePageChange = (e, value) => {
     console.log(value);
+    window.scrollTo(0, 0);
     setCurrentPage(value);
     console.log(currentPage); // hence proved, useState is async :)
     const indexOfLastPoke = value * 15;
@@ -124,15 +113,18 @@ setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
 
     const currentpokes = list.slice(indexOfFirstPoke, indexOfLastPoke);
 
-    
     setCurrentPokeList(JSON.parse(JSON.stringify(currentpokes)));
     console.log(currentPokeList.length);
+    container.current.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   return (
     <>
       <Navbar search={search} setSearch={setSearch} />
-      <div id="container">
+      <div id="container" ref={container}>
         {loading ? (
           <img id="loading" src={laoding} alt="loading" />
         ) : search ? (
@@ -144,27 +136,29 @@ setList(list.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
                 return <></>;
               }
             })}
-            
           </>
         ) : (
           <>
             {currentPokeList.map((item, key) => (
-              <Card item={item} key={uuidv4()} setModal={setModal} />
+              <Card
+                data-aos={"fade-up"}
+                item={item}
+                key={uuidv4()}
+                setModal={setModal}
+              />
             ))}
 
-<div id="footer">
+            <div id="footer">
               <Pagination
                 count={totalPages}
                 page={currentPage}
                 onChange={handlePageChange}
-                siblingCount={0}
-                className={classes.root} 
+                siblingCount={1}
+                className={classes.root}
               />{" "}
             </div>
-          
           </>
         )}
-
       </div>
 
       {modal.show ? <Modal id={modal.id} setModal={setModal} /> : null}

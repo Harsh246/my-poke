@@ -60,7 +60,7 @@ display: flex;
  
 }
 #name:hover{
-    font-weight: bolder;
+    font-weight: 900;
     color:rgb(40, 25, 119);
 }
 
